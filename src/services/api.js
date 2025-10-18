@@ -10,7 +10,8 @@ export const apiService = {
         data: cardData
       };
       
-      const response = await fetch(`${API_BASE}`, {
+      // Add key parameter to URL for authentication
+      const response = await fetch(`${API_BASE}?key=dcce11e001864b07bade5343a64e8e29`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,6 +1,5 @@
-import fetch from 'node-fetch';
-
-export const handler = async (event, context) => {
+// Netlify Function không cần import fetch - đã có sẵn global fetch
+exports.handler = async (event, context) => {
   // Handle CORS
   const headers = {
     'Access-Control-Allow-Origin': '*',
@@ -16,10 +15,12 @@ export const handler = async (event, context) => {
     const { httpMethod, body, queryStringParameters } = event;
     const targetUrl = `https://script.google.com/macros/s/AKfycbzoPppn3AMcg4JqQ01_HCCarFS9swPUKWIHKWW6U_fh-2SuWHaW7RVvUidhlAe2PMia0g/exec`;
     
-    // Thêm query parameters nếu có
+    // Thêm query parameters nếu có (bao gồm cả key parameter)
     const urlWithParams = queryStringParameters 
       ? `${targetUrl}?${new URLSearchParams(queryStringParameters).toString()}`
       : targetUrl;
+    
+    console.log('Proxy request:', httpMethod, urlWithParams);
     
     const response = await fetch(urlWithParams, {
       method: httpMethod,
@@ -31,17 +32,23 @@ export const handler = async (event, context) => {
     });
 
     const data = await response.text();
+    console.log('Proxy response status:', response.status);
     
     return {
-      statusCode: 200,
+      statusCode: response.status,
       headers,
       body: data
     };
   } catch (error) {
+    console.error('Proxy error:', error);
     return {
       statusCode: 500,
       headers,
-      body: JSON.stringify({ error: error.message })
+      body: JSON.stringify({ 
+        success: false,
+        error: error.message,
+        stack: error.stack 
+      })
     };
   }
 };
