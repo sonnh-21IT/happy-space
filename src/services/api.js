@@ -35,7 +35,8 @@ export const apiService = {
   // Get card data by wishing code only (load first)
   async getCardByCode(wishingCode) {
     try {
-      const gqlQuery = `SELECT * WHERE B = '${wishingCode}' LIMIT 1`;
+      // Query by field name (not column letter) - matches GAS convertGvizToJson()
+      const gqlQuery = `SELECT * WHERE wishing_code = '${wishingCode}' LIMIT 1`;
       const encodedQuery = encodeURIComponent(gqlQuery);
       
       const response = await fetch(`${API_BASE}?key=${import.meta.env.VITE_SECRET_KEY || 'default_key'}&query=${encodedQuery}`, {
@@ -59,7 +60,8 @@ export const apiService = {
   // Get card data by wishing code and key (legacy method)
   async getCard(wishingCode, key) {
     try {
-      const gqlQuery = `SELECT * WHERE B = '${wishingCode}' AND C = '${key}' LIMIT 1`;
+      // Query by field names (not column letters)
+      const gqlQuery = `SELECT * WHERE wishing_code = '${wishingCode}' AND key = '${key}' LIMIT 1`;
       const encodedQuery = encodeURIComponent(gqlQuery);
       
       const response = await fetch(`${API_BASE}?key=${import.meta.env.VITE_SECRET_KEY || 'default_key'}&query=${encodedQuery}`, {

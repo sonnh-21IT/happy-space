@@ -99,8 +99,8 @@ export default function KeyInputForm() {
     dispatch({ type: 'CLEAR_ERROR' });
 
     try {
-      // Try different possible field names for the key
-      const cardKey = cardData.C || cardData.key || cardData.secret_key || cardData.password;
+      // GAS trả về data với tên field theo header của Sheet
+      const cardKey = cardData.key;
       
       // Compare the entered key with the card's key
       if (cardKey === key.trim()) {
