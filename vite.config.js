@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
+export default defineConfig(({ command, mode }) => ({
   plugins: [react()],
-  base: '/happy-space/', // Đổi 'happy-space' thành tên repo GitHub của bạn
+  // Netlify dùng base: '/', GitHub Pages dùng base: '/happy-space/'
+  base: process.env.NETLIFY === 'true' ? '/' : '/happy-space/',
   server: {
     proxy: {
       '/api': {
@@ -26,4 +27,4 @@ export default defineConfig({
       }
     }
   }
-})
+}))
