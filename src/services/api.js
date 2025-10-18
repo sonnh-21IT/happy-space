@@ -40,7 +40,7 @@ export const apiService = {
       const gqlQuery = `SELECT * WHERE B = '${wishingCode}' LIMIT 1`;
       const encodedQuery = encodeURIComponent(gqlQuery);
       
-      const response = await fetch(`${API_BASE}?key=${import.meta.env.VITE_SECRET_KEY || 'default_key'}&query=${encodedQuery}`, {
+      const response = await fetch(`${API_BASE}?key=dcce11e001864b07bade5343a64e8e29&query=${encodedQuery}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ export const apiService = {
       const gqlQuery = `SELECT * WHERE B = '${wishingCode}' AND J = '${key}' LIMIT 1`;
       const encodedQuery = encodeURIComponent(gqlQuery);
       
-      const response = await fetch(`${API_BASE}?key=${import.meta.env.VITE_SECRET_KEY || 'default_key'}&query=${encodedQuery}`, {
+      const response = await fetch(`${API_BASE}?key=dcce11e001864b07bade5343a64e8e29&query=${encodedQuery}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
