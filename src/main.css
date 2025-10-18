@@ -1,0 +1,3730 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure consistent font for all card elements */
+.card-preview,
+.card-inner,
+.template-content,
+.final-card,
+.preview-card,
+.template-1,
+.template-modern,
+.template-romantic,
+.card-header,
+.card-body,
+.card-signature,
+.wishing-text,
+.card-title,
+.to-name,
+.signature {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  color: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  padding: 0;
+  margin: 0;
+}
+
+/* Router styles */
+.router {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form styles */
+.create-card-form {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 0;
+  background: white;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+  min-height: 100vh;
+  max-height: 100vh;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Fullscreen class for create card form */
+.create-card-form-fullscreen {
+  height: 100vh;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  background: #f8fafc;
+  border-right: 1px solid #e2e8f0;
+  overflow: hidden;
+  max-height: 100vh;
+  width: 400px;
+  flex-shrink: 0;
+}
+
+.form-container h1 {
+  color: #4a5568;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.form-container h2 {
+  color: #2d3748;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 8px;
+  position: relative;
+}
+
+.form-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.form-header {
+  background: #f8fafc;
+  padding: 20px;
+  border-bottom: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.form-header h2 {
+  color: #2d3748;
+  font-size: 1.2rem;
+  margin: 0;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 8px;
+  position: relative;
+}
+
+.form-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  gap: 0;
+  margin-top: 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tab-button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-button:hover {
+  background: #f7fafc;
+}
+
+.tab-button.active {
+  background: #f7fafc;
+  border-bottom-color: #667eea;
+}
+
+.tab-number {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #718096;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-bottom: 3px;
+  transition: all 0.3s ease;
+}
+
+.tab-button.active .tab-number {
+  background: #667eea;
+  color: white;
+}
+
+.tab-label {
+  font-size: 0.75rem;
+  color: #718096;
+  text-align: center;
+  line-height: 1.1;
+  transition: all 0.3s ease;
+  font-weight: 400;
+}
+
+.tab-button.active .tab-label {
+  color: #4a5568;
+  font-weight: 600;
+}
+
+.tab-button.completed {
+  background: #f0fff4;
+  border-bottom-color: #48bb78;
+}
+
+.tab-button.completed .tab-number {
+  background: #48bb78;
+  color: white;
+}
+
+.tab-button.completed .tab-label {
+  color: #2f855a;
+  font-weight: 500;
+}
+
+.tab-button.completed:hover {
+  background: #e6fffa;
+}
+
+/* Tab Content */
+.tab-content {
+  padding: 20px;
+}
+
+/* Tab Actions */
+.tab-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.tab-prev-button {
+  flex: 1;
+  max-width: 120px;
+}
+
+.tab-next-button {
+  flex: 1;
+  max-width: 120px;
+}
+
+.form-footer {
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Form field styles */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+.required {
+  color: #e53e3e;
+  margin-left: 4px;
+}
+
+.form-input {
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-input.error {
+  border-color: #e53e3e;
+}
+
+.form-input.error:focus {
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+}
+
+.field-error {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+/* Button styles */
+.button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.button-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.button-primary:hover:not(.button-disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.button-secondary {
+  background: #f7fafc;
+  color: #4a5568;
+  border: 2px solid #e2e8f0;
+}
+
+.button-secondary:hover:not(.button-disabled) {
+  background: #edf2f7;
+  border-color: #cbd5e0;
+}
+
+.button-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.submit-button {
+  margin: 0;
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  border-radius: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  transform: none;
+}
+
+.submit-button:disabled {
+  background: #e2e8f0;
+  color: #a0aec0;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Key input form styles */
+.key-input-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.key-input-form .form-container {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.key-input-form .form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.key-input-form .submit-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  width: 100%;
+}
+
+.key-input-form .submit-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.key-input-form .submit-button:disabled {
+  background: #e2e8f0;
+  color: #a0aec0;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+  box-shadow: none;
+}
+
+.key-input-form .form-field {
+  margin-bottom: 0;
+}
+
+.key-input-form .form-field input {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+}
+
+.key-input-form .form-field input:focus {
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  outline: none;
+}
+
+.key-input-form .form-field label {
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.key-input-form .error-message {
+  text-align: left;
+  background: #fed7d7;
+  color: #c53030;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 4px solid #e53e3e;
+  margin: 16px 0;
+}
+
+.key-input-form .help-message {
+  text-align: left;
+  background: #f7fafc;
+  color: #4a5568;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-top: 16px;
+}
+
+.key-input-form .help-message p {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.key-input-form .help-message ul {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.key-input-form .help-message li {
+  margin-bottom: 4px;
+  color: #718096;
+}
+
+/* Loading container styles */
+.loading-container {
+  background: white;
+  border-radius: 20px;
+  padding: 50px 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.loading-container h1 {
+  color: #4a5568;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.loading-description {
+  color: #718096;
+  font-size: 1rem;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+
+/* Loading message styles */
+.loading-message {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  margin-top: 15px;
+}
+
+/* Spinner for loading states */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+  display: block;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* Help message styles */
+.help-message {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 1000 !important;
+  padding: 20px !important;
+}
+
+.modal-container {
+  background: white !important;
+  border-radius: 20px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+  max-width: 500px !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 30px 20px 30px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2d3748;
+  margin: 0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #718096;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: #f7fafc;
+  color: #2d3748;
+}
+
+.modal-content {
+  padding: 30px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.modal-button {
+  flex: 1;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.modal-button-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.modal-button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.modal-button-secondary {
+  background: #f7fafc;
+  color: #4a5568;
+  border: 2px solid #e2e8f0;
+}
+
+.modal-button-secondary:hover {
+  background: #edf2f7;
+  border-color: #cbd5e0;
+}
+
+.modal-success-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 2rem;
+  color: white;
+}
+
+.modal-message {
+  text-align: center;
+  color: #4a5568;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.modal-url {
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 15px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #2d3748;
+  word-break: break-all;
+  margin: 20px 0;
+}
+
+.help-message p {
+  margin: 0 0 10px 0;
+  color: #495057;
+}
+
+.help-message ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #6c757d;
+}
+
+.help-message li {
+  margin-bottom: 5px;
+}
+
+/* Error message styles */
+.error-message {
+  background: #fed7d7;
+  color: #c53030;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #e53e3e;
+}
+
+.error-container {
+  text-align: center;
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Final card display styles */
+.final-card-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  /* Background will be set by theme classes */
+  transition: background 0.5s ease, color 0.5s ease;
+  overflow: hidden;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  /* Background will be set by theme classes */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  /* Background will be set by theme classes */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.final-card-display .preview-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  /* Background will be set by theme classes */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.final-card-display .card-preview {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  border: 2px dashed rgba(255, 255, 255, 0.5);
+}
+
+.final-card-display .preview-card {
+  border: none;
+  /* Background will be set by theme classes */
+  backdrop-filter: blur(10px);
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* New simplified CSS for final card display */
+.final-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+  animation: card-zoom-in 1s ease-out;
+  overflow: hidden;
+}
+
+@keyframes card-zoom-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.final-card-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background 0.5s ease, color 0.5s ease;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+}
+
+/* Success animation effects - REMOVED */
+
+/* Success animation keyframes - REMOVED */
+
+/* Enhanced Confetti particles */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ff6b6b;
+  animation: confetti-fall 3s linear forwards;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+}
+
+.confetti.circle {
+  border-radius: 50%;
+}
+
+.confetti.square {
+  border-radius: 2px;
+  transform-origin: center;
+}
+
+.confetti:nth-child(2n) {
+  background: #4ecdc4;
+  animation-delay: 0.1s;
+  animation-duration: 3.5s;
+}
+
+.confetti:nth-child(3n) {
+  background: #45b7d1;
+  animation-delay: 0.2s;
+  animation-duration: 4.5s;
+}
+
+.confetti:nth-child(4n) {
+  background: #96ceb4;
+  animation-delay: 0.3s;
+  animation-duration: 3.8s;
+}
+
+.confetti:nth-child(5n) {
+  background: #feca57;
+  animation-delay: 0.4s;
+  animation-duration: 4.2s;
+}
+
+.confetti:nth-child(6n) {
+  background: #ff9ff3;
+  animation-delay: 0.5s;
+  animation-duration: 3.2s;
+}
+
+.confetti:nth-child(7n) {
+  background: #a8e6cf;
+  animation-delay: 0.6s;
+  animation-duration: 4.8s;
+}
+
+.confetti:nth-child(8n) {
+  background: #ffd93d;
+  animation-delay: 0.7s;
+  animation-duration: 3.6s;
+}
+
+.confetti:nth-child(9n) {
+  background: #6bcf7f;
+  animation-delay: 0.8s;
+  animation-duration: 4.1s;
+}
+
+.confetti:nth-child(10n) {
+  background: #ff8a80;
+  animation-delay: 0.9s;
+  animation-duration: 3.9s;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Confetti burst effect - REMOVED */
+
+/* Floating hearts animation */
+.floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.heart {
+  position: absolute;
+  color: #ff6b9d;
+  font-size: 24px;
+  font-weight: bold;
+  animation: heart-float 4s linear forwards;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 8px rgba(255, 107, 157, 0.6)) brightness(1.1) contrast(1.1);
+  z-index: 10000;
+  pointer-events: none;
+  text-shadow: 0 0 6px rgba(255, 107, 157, 0.5);
+}
+
+.heart:nth-child(2n) {
+  color: #f8bbd9;
+  animation-delay: 1s;
+  filter: drop-shadow(0 0 8px rgba(248, 187, 217, 0.6)) brightness(1.1) contrast(1.1);
+  text-shadow: 0 0 6px rgba(248, 187, 217, 0.5);
+}
+
+.heart:nth-child(3n) {
+  color: #ffb3ba;
+  animation-delay: 2s;
+  filter: drop-shadow(0 0 8px rgba(255, 179, 186, 0.6)) brightness(1.1) contrast(1.1);
+  text-shadow: 0 0 6px rgba(255, 179, 186, 0.5);
+}
+
+@keyframes heart-float {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Floating snow animation */
+.floating-snow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  color: #ffffff;
+  font-size: 16px;
+  animation: snow-fall 7s linear forwards;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+}
+
+@keyframes snow-fall {
+  0% {
+    transform: translateY(-10vh) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) translateX(var(--drift));
+    opacity: 0.3;
+  }
+}
+
+/* Fireworks animation */
+.fireworks-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.firework {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.firework-particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: firework-explode 1.5s ease-out forwards;
+  box-shadow: 0 0 15px currentColor, 0 0 25px currentColor;
+}
+
+@keyframes firework-explode {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(
+      calc(cos(var(--angle)) * var(--distance)),
+      calc(sin(var(--angle)) * var(--distance))
+    ) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Floating stars animation */
+.floating-stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.star {
+  position: absolute;
+  animation: star-rise 5s linear forwards, star-twinkle var(--twinkle-duration) ease-in-out infinite;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.8));
+  transform-origin: center;
+}
+
+@keyframes star-rise {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(var(--rotation));
+    opacity: 0;
+  }
+}
+
+@keyframes star-twinkle {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 5px rgba(255, 215, 0, 0.8));
+  }
+  50% {
+    filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 215, 0, 1));
+  }
+}
+
+/* Floating bubbles animation */
+.floating-bubbles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(100, 200, 255, 0.9), rgba(50, 150, 255, 0.6));
+  border: 3px solid rgba(50, 150, 255, 0.7);
+  box-shadow: 
+    inset 0 0 30px rgba(150, 220, 255, 0.8),
+    0 0 20px rgba(100, 200, 255, 0.6),
+    0 0 40px rgba(50, 150, 255, 0.4);
+  transform: scale(0);
+  opacity: 0;
+}
+
+@keyframes bubble-pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* Card preview styles */
+.preview-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+
+.card-preview {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  border: 2px dashed rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Ensure border is visible for preview screen */
+.preview-container .card-preview {
+  border: 2px dashed rgba(255, 255, 255, 0.5) !important;
+}
+
+
+.preview-card {
+  border: 2px dashed rgba(255, 255, 255, 0.5) !important;
+  /* Background will be set by theme classes */
+  backdrop-filter: blur(10px);
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+}
+
+/* Ensure border is always visible with higher specificity */
+.card-preview .preview-card,
+.preview-container .preview-card {
+  border: 2px dashed rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Remove border for final-card-display preview-card */
+.final-card-display .preview-card {
+  border: none !important;
+}
+
+/* Force border with maximum specificity */
+div.preview-card,
+div.card-preview div.preview-card,
+div.preview-container div.preview-card {
+  border: 2px dashed rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Remove border for final-card-display preview-card with maximum specificity */
+div.final-card-display div.preview-card {
+  border: none !important;
+  border-style: none !important;
+  border-width: 0 !important;
+  border-color: transparent !important;
+}
+
+/* Force remove all borders for final-card-display preview-card */
+.final-card-display .preview-card,
+.final-card-display div.preview-card,
+div.final-card-display .preview-card,
+div.final-card-display div.preview-card {
+  border: none !important;
+  border-style: none !important;
+  border-width: 0 !important;
+  border-color: transparent !important;
+}
+
+.final-card {
+  border: none;
+  /* Background will be set by theme classes */
+  backdrop-filter: blur(10px);
+}
+
+.card-inner {
+  padding: 40px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.preview-overlay {
+  display: none;
+}
+
+/* Theme styles */
+.theme-classic {
+  background: linear-gradient(135deg, #fef7e0 0%, #f4e4bc 100%);
+  color: #8b4513;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.theme-modern {
+  background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+  color: #2d3748;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.theme-romantic {
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+  color: #be185d;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.theme-previous {
+  background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+  color: #4a5568;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.theme-ocean {
+  background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+  color: #234e52;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.theme-forest {
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+  color: #22543d;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.theme-sunset {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  color: #c53030;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.theme-lavender {
+  background: linear-gradient(135deg, #faf5ff 0%, #e9d8fd 100%);
+  color: #553c9a;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.theme-golden {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  color: #92400e;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.theme-midnight {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  color: #e2e8f0;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Apply theme to card inner */
+.card-inner.theme-classic {
+  background: linear-gradient(135deg, #fef7e0 0%, #f4e4bc 100%);
+  color: #8b4513;
+}
+
+.card-inner.theme-modern {
+  background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+  color: #2d3748;
+}
+
+.card-inner.theme-romantic {
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+  color: #be185d;
+}
+
+.card-inner.theme-previous {
+  background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+  color: #4a5568;
+}
+
+.card-inner.theme-ocean {
+  background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+  color: #234e52;
+}
+
+.card-inner.theme-forest {
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+  color: #22543d;
+}
+
+.card-inner.theme-sunset {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  color: #c53030;
+}
+
+.card-inner.theme-lavender {
+  background: linear-gradient(135deg, #faf5ff 0%, #e9d8fd 100%);
+  color: #553c9a;
+}
+
+.card-inner.theme-golden {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  color: #92400e;
+}
+
+.card-inner.theme-midnight {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  color: #e2e8f0;
+}
+
+/* Template styles */
+.template-1 .card-header {
+  padding: 30px 25px 20px 25px;
+}
+
+.template-1 .card-header h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.template-1 .to-name {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.template-1 .card-body {
+  padding: 0 25px 20px 25px;
+}
+
+.template-1 .card-signature {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  padding: 10px 15px;
+}
+
+/* New template styles */
+.template-classic .card-header h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.template-classic .to-name {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Template size constraints */
+.template-classic,
+.template-modern,
+.template-romantic {
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Classic Template - Zigzag Border */
+.template-1 {
+  position: relative;
+  /* border: none; - Removed to preserve preview-card border */
+  background: #fef7e0;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* Theme-based colors for classic template */
+.theme-classic .template-1 {
+  background: #fef7e0;
+  background-image: 
+    radial-gradient(circle at 15px 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at 15px calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at 25% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 25% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 12.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 12.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 87.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 87.5%, currentColor 6px, transparent 6px);
+  background-size: 50px 50px, 50px 50px, 50px 50px, 50px 50px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px;
+  background-position: 0 0, 100% 0, 0 100%, 100% 100%, 25% 0, 75% 0, 25% 100%, 75% 100%, 0 25%, 0 75%, 100% 25%, 100% 75%, 12.5% 0, 37.5% 0, 62.5% 0, 87.5% 0, 12.5% 100%, 37.5% 100%, 62.5% 100%, 87.5% 100%, 0 12.5%, 0 37.5%, 0 62.5%, 0 87.5%, 100% 12.5%, 100% 37.5%, 100% 62.5%, 100% 87.5%;
+  background-repeat: no-repeat;
+  color: #8b4513;
+}
+
+.theme-modern .template-1 {
+  background: #f7fafc;
+  background-image: 
+    radial-gradient(circle at 15px 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at 15px calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at 25% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 25% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 12.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 12.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 87.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 87.5%, currentColor 6px, transparent 6px);
+  background-size: 50px 50px, 50px 50px, 50px 50px, 50px 50px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px;
+  background-position: 0 0, 100% 0, 0 100%, 100% 100%, 25% 0, 75% 0, 25% 100%, 75% 100%, 0 25%, 0 75%, 100% 25%, 100% 75%, 12.5% 0, 37.5% 0, 62.5% 0, 87.5% 0, 12.5% 100%, 37.5% 100%, 62.5% 100%, 87.5% 100%, 0 12.5%, 0 37.5%, 0 62.5%, 0 87.5%, 100% 12.5%, 100% 37.5%, 100% 62.5%, 100% 87.5%;
+  background-repeat: no-repeat;
+  color: #2d3748;
+}
+
+.theme-romantic .template-1 {
+  background: #fdf2f8;
+  background-image: 
+    radial-gradient(circle at 15px 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at 15px calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at 25% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 25% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 12.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 12.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 87.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 87.5%, currentColor 6px, transparent 6px);
+  background-size: 50px 50px, 50px 50px, 50px 50px, 50px 50px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px;
+  background-position: 0 0, 100% 0, 0 100%, 100% 100%, 25% 0, 75% 0, 25% 100%, 75% 100%, 0 25%, 0 75%, 100% 25%, 100% 75%, 12.5% 0, 37.5% 0, 62.5% 0, 87.5% 0, 12.5% 100%, 37.5% 100%, 62.5% 100%, 87.5% 100%, 0 12.5%, 0 37.5%, 0 62.5%, 0 87.5%, 100% 12.5%, 100% 37.5%, 100% 62.5%, 100% 87.5%;
+  background-repeat: no-repeat;
+  color: #be185d;
+}
+
+.theme-previous .template-1 {
+  background: #f0f4f8;
+  background-image: 
+    radial-gradient(circle at 15px 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at 15px calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at 25% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 25% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 12.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 12.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 87.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 87.5%, currentColor 6px, transparent 6px);
+  background-size: 50px 50px, 50px 50px, 50px 50px, 50px 50px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px;
+  background-position: 0 0, 100% 0, 0 100%, 100% 100%, 25% 0, 75% 0, 25% 100%, 75% 100%, 0 25%, 0 75%, 100% 25%, 100% 75%, 12.5% 0, 37.5% 0, 62.5% 0, 87.5% 0, 12.5% 100%, 37.5% 100%, 62.5% 100%, 87.5% 100%, 0 12.5%, 0 37.5%, 0 62.5%, 0 87.5%, 100% 12.5%, 100% 37.5%, 100% 62.5%, 100% 87.5%;
+  background-repeat: no-repeat;
+  color: #4a5568;
+}
+
+.theme-ocean .template-1 {
+  background: #e6fffa;
+  background-image: 
+    radial-gradient(circle at 15px 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at 15px calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at 25% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 25% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 12.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 12.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 87.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 87.5%, currentColor 6px, transparent 6px);
+  background-size: 50px 50px, 50px 50px, 50px 50px, 50px 50px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px;
+  background-position: 0 0, 100% 0, 0 100%, 100% 100%, 25% 0, 75% 0, 25% 100%, 75% 100%, 0 25%, 0 75%, 100% 25%, 100% 75%, 12.5% 0, 37.5% 0, 62.5% 0, 87.5% 0, 12.5% 100%, 37.5% 100%, 62.5% 100%, 87.5% 100%, 0 12.5%, 0 37.5%, 0 62.5%, 0 87.5%, 100% 12.5%, 100% 37.5%, 100% 62.5%, 100% 87.5%;
+  background-repeat: no-repeat;
+  color: #234e52;
+}
+
+.theme-forest .template-1 {
+  background: #f0fff4;
+  background-image: 
+    radial-gradient(circle at 15px 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at 15px calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at 25% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 25% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 12.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 12.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 87.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 87.5%, currentColor 6px, transparent 6px);
+  background-size: 50px 50px, 50px 50px, 50px 50px, 50px 50px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px;
+  background-position: 0 0, 100% 0, 0 100%, 100% 100%, 25% 0, 75% 0, 25% 100%, 75% 100%, 0 25%, 0 75%, 100% 25%, 100% 75%, 12.5% 0, 37.5% 0, 62.5% 0, 87.5% 0, 12.5% 100%, 37.5% 100%, 62.5% 100%, 87.5% 100%, 0 12.5%, 0 37.5%, 0 62.5%, 0 87.5%, 100% 12.5%, 100% 37.5%, 100% 62.5%, 100% 87.5%;
+  background-repeat: no-repeat;
+  color: #22543d;
+}
+
+.theme-sunset .template-1 {
+  background: #fff5f5;
+  background-image: 
+    radial-gradient(circle at 15px 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at 15px calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at 25% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 25% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 12.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 12.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 87.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 87.5%, currentColor 6px, transparent 6px);
+  background-size: 50px 50px, 50px 50px, 50px 50px, 50px 50px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px;
+  background-position: 0 0, 100% 0, 0 100%, 100% 100%, 25% 0, 75% 0, 25% 100%, 75% 100%, 0 25%, 0 75%, 100% 25%, 100% 75%, 12.5% 0, 37.5% 0, 62.5% 0, 87.5% 0, 12.5% 100%, 37.5% 100%, 62.5% 100%, 87.5% 100%, 0 12.5%, 0 37.5%, 0 62.5%, 0 87.5%, 100% 12.5%, 100% 37.5%, 100% 62.5%, 100% 87.5%;
+  background-repeat: no-repeat;
+  color: #c53030;
+}
+
+.theme-lavender .template-1 {
+  background: #faf5ff;
+  background-image: 
+    radial-gradient(circle at 15px 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at 15px calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at 25% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 25% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 12.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 12.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 87.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 87.5%, currentColor 6px, transparent 6px);
+  background-size: 50px 50px, 50px 50px, 50px 50px, 50px 50px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px;
+  background-position: 0 0, 100% 0, 0 100%, 100% 100%, 25% 0, 75% 0, 25% 100%, 75% 100%, 0 25%, 0 75%, 100% 25%, 100% 75%, 12.5% 0, 37.5% 0, 62.5% 0, 87.5% 0, 12.5% 100%, 37.5% 100%, 62.5% 100%, 87.5% 100%, 0 12.5%, 0 37.5%, 0 62.5%, 0 87.5%, 100% 12.5%, 100% 37.5%, 100% 62.5%, 100% 87.5%;
+  background-repeat: no-repeat;
+  color: #553c9a;
+}
+
+.theme-golden .template-1 {
+  background: #fffbeb;
+  background-image: 
+    radial-gradient(circle at 15px 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at 15px calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at 25% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 25% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 12.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 12.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 87.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 87.5%, currentColor 6px, transparent 6px);
+  background-size: 50px 50px, 50px 50px, 50px 50px, 50px 50px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px;
+  background-position: 0 0, 100% 0, 0 100%, 100% 100%, 25% 0, 75% 0, 25% 100%, 75% 100%, 0 25%, 0 75%, 100% 25%, 100% 75%, 12.5% 0, 37.5% 0, 62.5% 0, 87.5% 0, 12.5% 100%, 37.5% 100%, 62.5% 100%, 87.5% 100%, 0 12.5%, 0 37.5%, 0 62.5%, 0 87.5%, 100% 12.5%, 100% 37.5%, 100% 62.5%, 100% 87.5%;
+  background-repeat: no-repeat;
+  color: #92400e;
+}
+
+.theme-midnight .template-1 {
+  background: #1a202c;
+  background-image: 
+    radial-gradient(circle at 15px 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at 15px calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at 25% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 25% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 12.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 12.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 87.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 87.5%, currentColor 6px, transparent 6px);
+  background-size: 50px 50px, 50px 50px, 50px 50px, 50px 50px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px;
+  background-position: 0 0, 100% 0, 0 100%, 100% 100%, 25% 0, 75% 0, 25% 100%, 75% 100%, 0 25%, 0 75%, 100% 25%, 100% 75%, 12.5% 0, 37.5% 0, 62.5% 0, 87.5% 0, 12.5% 100%, 37.5% 100%, 62.5% 100%, 87.5% 100%, 0 12.5%, 0 37.5%, 0 62.5%, 0 87.5%, 100% 12.5%, 100% 37.5%, 100% 62.5%, 100% 87.5%;
+  background-repeat: no-repeat;
+  color: #e2e8f0;
+}
+
+.template-1::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: 
+    repeating-linear-gradient(45deg, currentColor 0px, currentColor 10px, transparent 10px, transparent 20px),
+    repeating-linear-gradient(-45deg, currentColor 0px, currentColor 10px, transparent 10px, transparent 20px);
+  z-index: -1;
+}
+
+/* Zigzag border effect */
+.template-1::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  background: 
+    linear-gradient(45deg, currentColor 25%, transparent 25%),
+    linear-gradient(-45deg, currentColor 25%, transparent 25%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px;
+  z-index: -2;
+}
+
+/* Half circles around classic template */
+.template-1 {
+  position: relative;
+  background-image: 
+    radial-gradient(circle at 15px 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) 15px, currentColor 12px, transparent 12px),
+    radial-gradient(circle at 15px calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at calc(100% - 15px) calc(100% - 15px), currentColor 12px, transparent 12px),
+    radial-gradient(circle at 25% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 0, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 25% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 75% 100%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 0 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 25%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 100% 75%, currentColor 8px, transparent 8px),
+    radial-gradient(circle at 12.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 0, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 12.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 37.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 62.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 87.5% 100%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 0 87.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 12.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 37.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 62.5%, currentColor 6px, transparent 6px),
+    radial-gradient(circle at 100% 87.5%, currentColor 6px, transparent 6px);
+  background-size: 50px 50px, 50px 50px, 50px 50px, 50px 50px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px;
+  background-position: 0 0, 100% 0, 0 100%, 100% 100%, 25% 0, 75% 0, 25% 100%, 75% 100%, 0 25%, 0 75%, 100% 25%, 100% 75%, 12.5% 0, 37.5% 0, 62.5% 0, 87.5% 0, 12.5% 100%, 37.5% 100%, 62.5% 100%, 87.5% 100%, 0 12.5%, 0 37.5%, 0 62.5%, 0 87.5%, 100% 12.5%, 100% 37.5%, 100% 62.5%, 100% 87.5%;
+  background-repeat: no-repeat;
+}
+
+/* Modern Template - Slanted Rectangles */
+.template-modern {
+  position: relative;
+  overflow: hidden;
+  background: #f7fafc;
+  border-radius: 20px;
+}
+
+/* Theme-based colors for modern template */
+.theme-classic .template-modern {
+  color: #8b4513;
+  background: #fef7e0;
+}
+
+.theme-modern .template-modern {
+  color: #2d3748;
+  background: #f7fafc;
+}
+
+.theme-romantic .template-modern {
+  color: #be185d;
+  background: #fdf2f8;
+}
+
+.theme-previous .template-modern {
+  color: #4a5568;
+  background: #f0f4f8;
+}
+
+.theme-ocean .template-modern {
+  color: #234e52;
+  background: #e6fffa;
+}
+
+.theme-forest .template-modern {
+  color: #22543d;
+  background: #f0fff4;
+}
+
+.theme-sunset .template-modern {
+  color: #c53030;
+  background: #fff5f5;
+}
+
+.theme-lavender .template-modern {
+  color: #553c9a;
+  background: #faf5ff;
+}
+
+.theme-golden .template-modern {
+  color: #92400e;
+  background: #fffbeb;
+}
+
+.theme-midnight .template-modern {
+  color: #e2e8f0;
+  background: #1a202c;
+}
+
+.template-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(45deg, currentColor 0px, currentColor 15px, transparent 15px, transparent 30px),
+    repeating-linear-gradient(-45deg, currentColor 0px, currentColor 15px, transparent 15px, transparent 30px);
+  z-index: 0;
+  opacity: 0.08;
+}
+
+.template-modern .modern-header,
+.template-modern .modern-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Slanted rectangles pattern */
+.template-modern::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(45deg, transparent 0px, transparent 20px, currentColor 20px, currentColor 25px),
+    repeating-linear-gradient(-45deg, transparent 0px, transparent 20px, currentColor 20px, currentColor 25px);
+  z-index: 0;
+  opacity: 0.03;
+}
+
+/* Ensure card preview doesn't scroll */
+.card-preview {
+  overflow: hidden;
+}
+
+.preview-card {
+  overflow: hidden;
+}
+
+.card-inner {
+  overflow: hidden;
+}
+
+.template-modern .card-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.template-modern .card-title h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.template-modern .to-name {
+  font-style: italic;
+  color: #666;
+}
+
+/* Modern Template - Clean & Minimal */
+.template-modern {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.modern-header {
+  border-bottom: 2px solid #e2e8f0;
+  padding: 20px;
+  text-align: center;
+}
+
+.modern-title h2 {
+  font-size: 1.8rem;
+  margin: 0 0 10px 0;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.modern-to {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.to-label {
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modern-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.wishing-box {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.wishing-box .wishing-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: center;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Romantic Template - Hearts & Elegant */
+.template-romantic {
+  position: relative;
+  height: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+}
+
+/* Theme-based colors for romantic template */
+.theme-classic .template-romantic {
+  background: linear-gradient(135deg, #fef7e0 0%, #f5f0e8 100%);
+  color: #8b4513;
+}
+
+.theme-modern .template-romantic {
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  color: #2d3748;
+}
+
+.theme-romantic .template-romantic {
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+  color: #be185d;
+}
+
+.theme-previous .template-romantic {
+  background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+  color: #4a5568;
+}
+
+.theme-ocean .template-romantic {
+  background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+  color: #234e52;
+}
+
+.theme-forest .template-romantic {
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+  color: #22543d;
+}
+
+.theme-sunset .template-romantic {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  color: #c53030;
+}
+
+.theme-lavender .template-romantic {
+  background: linear-gradient(135deg, #faf5ff 0%, #e9d8fd 100%);
+  color: #553c9a;
+}
+
+.theme-golden .template-romantic {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  color: #92400e;
+}
+
+.theme-midnight .template-romantic {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  color: #e2e8f0;
+}
+
+.romantic-hearts {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.romantic-hearts .heart {
+  font-size: 1.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.romantic-hearts .heart:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.romantic-hearts .heart:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.romantic-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.romantic-title h2 {
+  font-size: 2rem;
+  margin: 0 0 20px 0;
+  font-weight: 400;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.romantic-to {
+  margin-bottom: 30px;
+}
+
+.romantic-to .to-name {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #666;
+}
+
+.romantic-wishing {
+  max-width: 90%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.wishing-border {
+  border: 2px dashed rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.wishing-border .wishing-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin: 0;
+  font-style: italic;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* CSS Shapes for Templates */
+.shape {
+  display: inline-block;
+  margin: 5px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.heart-shape {
+  width: 20px;
+  height: 18px;
+  position: relative;
+  transform: rotate(-45deg);
+}
+
+.heart-shape:before,
+.heart-shape:after {
+  content: '';
+  width: 20px;
+  height: 30px;
+  position: absolute;
+  left: 20px;
+  top: 0;
+  background: currentColor;
+  border-radius: 20px 20px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.heart-shape:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.star-shape {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 7px solid currentColor;
+  position: relative;
+}
+
+.star-shape:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 7px solid currentColor;
+  position: absolute;
+  top: 7px;
+  left: -10px;
+}
+
+.circle-shape {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.balloon-shape {
+  width: 15px;
+  height: 20px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: currentColor;
+  position: relative;
+}
+
+.balloon-shape:after {
+  content: '';
+  width: 2px;
+  height: 15px;
+  background: currentColor;
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.gift-shape {
+  width: 20px;
+  height: 15px;
+  background: currentColor;
+  position: relative;
+}
+
+.gift-shape:before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.gift-shape:after {
+  content: '';
+  width: 2px;
+  height: 15px;
+  background: currentColor;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Random theme-based colors for shapes */
+.theme-classic .shape {
+  color: #8b4513;
+}
+
+.theme-classic .shape:nth-child(odd) {
+  color: #a0522d;
+}
+
+.theme-classic .shape:nth-child(even) {
+  color: #cd853f;
+}
+
+.theme-classic .shape:nth-child(3n) {
+  color: #daa520;
+}
+
+.theme-modern .shape {
+  color: #2d3748;
+}
+
+.theme-modern .shape:nth-child(odd) {
+  color: #4a5568;
+}
+
+.theme-modern .shape:nth-child(even) {
+  color: #718096;
+}
+
+.theme-modern .shape:nth-child(3n) {
+  color: #a0aec0;
+}
+
+.theme-romantic .shape {
+  color: #be185d;
+}
+
+.theme-romantic .shape:nth-child(odd) {
+  color: #e53e3e;
+}
+
+.theme-romantic .shape:nth-child(even) {
+  color: #f56565;
+}
+
+.theme-romantic .shape:nth-child(3n) {
+  color: #fc8181;
+}
+
+.theme-previous .shape {
+  color: #4a5568;
+}
+
+.theme-previous .shape:nth-child(odd) {
+  color: #718096;
+}
+
+.theme-previous .shape:nth-child(even) {
+  color: #a0aec0;
+}
+
+.theme-previous .shape:nth-child(3n) {
+  color: #cbd5e0;
+}
+
+/* Ocean theme shapes */
+.theme-ocean .shape {
+  color: #234e52;
+}
+
+.theme-ocean .shape:nth-child(odd) {
+  color: #319795;
+}
+
+.theme-ocean .shape:nth-child(even) {
+  color: #4fd1c7;
+}
+
+.theme-ocean .shape:nth-child(3n) {
+  color: #81e6d9;
+}
+
+/* Forest theme shapes */
+.theme-forest .shape {
+  color: #22543d;
+}
+
+.theme-forest .shape:nth-child(odd) {
+  color: #38a169;
+}
+
+.theme-forest .shape:nth-child(even) {
+  color: #68d391;
+}
+
+.theme-forest .shape:nth-child(3n) {
+  color: #9ae6b4;
+}
+
+/* Sunset theme shapes */
+.theme-sunset .shape {
+  color: #c53030;
+}
+
+.theme-sunset .shape:nth-child(odd) {
+  color: #e53e3e;
+}
+
+.theme-sunset .shape:nth-child(even) {
+  color: #f56565;
+}
+
+.theme-sunset .shape:nth-child(3n) {
+  color: #fc8181;
+}
+
+/* Lavender theme shapes */
+.theme-lavender .shape {
+  color: #553c9a;
+}
+
+.theme-lavender .shape:nth-child(odd) {
+  color: #805ad5;
+}
+
+.theme-lavender .shape:nth-child(even) {
+  color: #b794f6;
+}
+
+.theme-lavender .shape:nth-child(3n) {
+  color: #d6bcfa;
+}
+
+/* Golden theme shapes */
+.theme-golden .shape {
+  color: #92400e;
+}
+
+.theme-golden .shape:nth-child(odd) {
+  color: #d69e2e;
+}
+
+.theme-golden .shape:nth-child(even) {
+  color: #f6e05e;
+}
+
+.theme-golden .shape:nth-child(3n) {
+  color: #faf089;
+}
+
+/* Midnight theme shapes */
+.theme-midnight .shape {
+  color: #e2e8f0;
+}
+
+.theme-midnight .shape:nth-child(odd) {
+  color: #a0aec0;
+}
+
+.theme-midnight .shape:nth-child(even) {
+  color: #718096;
+}
+
+.theme-midnight .shape:nth-child(3n) {
+  color: #4a5568;
+}
+
+/* Random animation variations */
+@keyframes float-random-1 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(180deg); }
+}
+
+@keyframes float-random-2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+  25% { transform: translateY(-5px) rotate(90deg) scale(1.1); }
+  50% { transform: translateY(-15px) rotate(180deg) scale(0.9); }
+  75% { transform: translateY(-8px) rotate(270deg) scale(1.05); }
+}
+
+@keyframes float-random-3 {
+  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+  33% { transform: translateY(-12px) rotate(120deg) scale(1.2); }
+  66% { transform: translateY(-6px) rotate(240deg) scale(0.8); }
+}
+
+/* Apply random animations */
+.shape:nth-child(1) {
+  animation: float-random-1 2.5s ease-in-out infinite;
+}
+
+.shape:nth-child(2) {
+  animation: float-random-2 3.2s ease-in-out infinite;
+}
+
+.shape:nth-child(3) {
+  animation: float-random-3 2.8s ease-in-out infinite;
+}
+
+.shape:nth-child(4) {
+  animation: float-random-1 3.5s ease-in-out infinite;
+}
+
+.shape:nth-child(5) {
+  animation: float-random-2 2.2s ease-in-out infinite;
+}
+
+.shape:nth-child(6) {
+  animation: float-random-3 3.8s ease-in-out infinite;
+}
+
+.shape:nth-child(7) {
+  animation: float-random-1 2.9s ease-in-out infinite;
+}
+
+.shape:nth-child(8) {
+  animation: float-random-2 3.1s ease-in-out infinite;
+}
+
+/* Random positioning for floating shapes */
+.floating-shapes {
+  position: relative;
+  width: 100%;
+  height: 120px;
+}
+
+.floating-shapes .shape:nth-child(1) {
+  position: absolute;
+  top: 10px;
+  left: 15%;
+  animation-delay: 0s;
+  animation-duration: 2.5s;
+  opacity: 0.3;
+}
+
+.floating-shapes .shape:nth-child(2) {
+  position: absolute;
+  top: 30px;
+  left: 70%;
+  animation-delay: 1s;
+  animation-duration: 3s;
+  opacity: 0.8;
+}
+
+.floating-shapes .shape:nth-child(3) {
+  position: absolute;
+  top: 60px;
+  left: 40%;
+  animation-delay: 2s;
+  animation-duration: 2.8s;
+  opacity: 0.5;
+}
+
+.floating-shapes .shape:nth-child(4) {
+  position: absolute;
+  top: 20px;
+  left: 85%;
+  animation-delay: 0.5s;
+  animation-duration: 2.2s;
+  opacity: 0.6;
+}
+
+.floating-shapes .shape:nth-child(5) {
+  position: absolute;
+  top: 80px;
+  left: 25%;
+  animation-delay: 1.5s;
+  animation-duration: 3.2s;
+  opacity: 0.4;
+}
+
+.floating-shapes .shape:nth-child(6) {
+  position: absolute;
+  top: 45px;
+  left: 55%;
+  animation-delay: 2.5s;
+  animation-duration: 2.7s;
+  opacity: 0.7;
+}
+
+.floating-shapes .shape:nth-child(7) {
+  position: absolute;
+  top: 15px;
+  left: 5%;
+  animation-delay: 0.8s;
+  animation-duration: 2.9s;
+  opacity: 0.9;
+}
+
+.floating-shapes .shape:nth-child(8) {
+  position: absolute;
+  top: 95px;
+  left: 90%;
+  animation-delay: 1.8s;
+  animation-duration: 2.4s;
+  opacity: 0.2;
+}
+
+.romantic-hearts {
+  position: relative;
+  width: 100%;
+  height: 80px;
+}
+
+.romantic-hearts .shape:nth-child(1) {
+  position: absolute;
+  top: 5px;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 2.5s;
+  opacity: 0.4;
+}
+
+.romantic-hearts .shape:nth-child(2) {
+  position: absolute;
+  top: 25px;
+  left: 80%;
+  animation-delay: 1s;
+  animation-duration: 3s;
+  opacity: 0.8;
+}
+
+.romantic-hearts .shape:nth-child(3) {
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  animation-delay: 2s;
+  animation-duration: 2.8s;
+  opacity: 0.6;
+}
+
+.romantic-hearts .shape:nth-child(4) {
+  position: absolute;
+  top: 15px;
+  left: 65%;
+  animation-delay: 0.7s;
+  animation-duration: 2.3s;
+  opacity: 0.3;
+}
+
+.romantic-hearts .shape:nth-child(5) {
+  position: absolute;
+  top: 35px;
+  left: 25%;
+  animation-delay: 1.3s;
+  animation-duration: 3.1s;
+  opacity: 0.7;
+}
+
+.romantic-hearts .shape:nth-child(6) {
+  position: absolute;
+  top: 55px;
+  left: 85%;
+  animation-delay: 2.3s;
+  animation-duration: 2.6s;
+  opacity: 0.5;
+}
+
+.romantic-hearts .shape:nth-child(7) {
+  position: absolute;
+  top: 10px;
+  left: 40%;
+  animation-delay: 0.4s;
+  animation-duration: 2.9s;
+  opacity: 0.9;
+}
+
+.romantic-hearts .shape:nth-child(8) {
+  position: absolute;
+  top: 65px;
+  left: 15%;
+  animation-delay: 1.7s;
+  animation-duration: 2.4s;
+  opacity: 0.2;
+}
+
+/* Random positioning for decorations */
+.decorations {
+  position: relative;
+  width: 100%;
+  height: 60px;
+}
+
+.decorations .shape:nth-child(1) {
+  position: absolute;
+  top: 5px;
+  left: 20%;
+  animation-delay: 0.5s;
+  animation-duration: 2.2s;
+  opacity: 0.6;
+}
+
+.decorations .shape:nth-child(2) {
+  position: absolute;
+  top: 15px;
+  left: 75%;
+  animation-delay: 1.5s;
+  animation-duration: 2.8s;
+  opacity: 0.8;
+}
+
+.decorations .shape:nth-child(3) {
+  position: absolute;
+  top: 25px;
+  left: 45%;
+  animation-delay: 0.8s;
+  animation-duration: 2.5s;
+  opacity: 0.4;
+}
+
+.decorations .shape:nth-child(4) {
+  position: absolute;
+  top: 10px;
+  left: 85%;
+  animation-delay: 1.2s;
+  animation-duration: 3.0s;
+  opacity: 0.7;
+}
+
+.decorations .shape:nth-child(5) {
+  position: absolute;
+  top: 35px;
+  left: 15%;
+  animation-delay: 2.0s;
+  animation-duration: 2.3s;
+  opacity: 0.3;
+}
+
+.decorations .shape:nth-child(6) {
+  position: absolute;
+  top: 20px;
+  left: 60%;
+  animation-delay: 0.3s;
+  animation-duration: 2.7s;
+  opacity: 0.9;
+}
+
+.decorations .shape:nth-child(7) {
+  position: absolute;
+  top: 45px;
+  left: 90%;
+  animation-delay: 1.8s;
+  animation-duration: 2.1s;
+  opacity: 0.5;
+}
+
+/* Random positioning for shapes decoration */
+.shapes-decoration {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+
+.shapes-decoration .shape:nth-child(1) {
+  position: absolute;
+  top: 5px;
+  left: 25%;
+  animation-delay: 0.3s;
+  animation-duration: 2.1s;
+  opacity: 0.4;
+  transform: scale(0.8);
+}
+
+.shapes-decoration .shape:nth-child(2) {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  animation-delay: 1.2s;
+  animation-duration: 2.6s;
+  opacity: 0.7;
+  transform: scale(1.2);
+}
+
+.shapes-decoration .shape:nth-child(3) {
+  position: absolute;
+  top: 5px;
+  left: 75%;
+  animation-delay: 2.1s;
+  animation-duration: 2.3s;
+  opacity: 0.6;
+  transform: scale(0.9);
+}
+
+.shapes-decoration .shape:nth-child(4) {
+  position: absolute;
+  top: 25px;
+  left: 15%;
+  animation-delay: 0.8s;
+  animation-duration: 2.4s;
+  opacity: 0.3;
+  transform: scale(1.1);
+}
+
+.shapes-decoration .shape:nth-child(5) {
+  position: absolute;
+  top: 25px;
+  left: 85%;
+  animation-delay: 1.5s;
+  animation-duration: 2.8s;
+  opacity: 0.8;
+  transform: scale(0.7);
+}
+
+.shapes-decoration .shape:nth-child(6) {
+  position: absolute;
+  top: 25px;
+  left: 60%;
+  animation-delay: 2.3s;
+  animation-duration: 2.2s;
+  opacity: 0.5;
+  transform: scale(1.3);
+}
+
+/* Random size variations for all shapes */
+.shape {
+  display: inline-block;
+  margin: 5px;
+  animation: float 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+/* Random size classes */
+.shape:nth-child(odd) {
+  transform: scale(0.7);
+}
+
+.shape:nth-child(even) {
+  transform: scale(1.2);
+}
+
+.shape:nth-child(3n) {
+  transform: scale(0.9);
+}
+
+.shape:nth-child(4n) {
+  transform: scale(1.1);
+}
+
+.shape:nth-child(5n) {
+  transform: scale(0.8);
+}
+
+/* Random rotation for shapes */
+.shape:nth-child(1) {
+  transform: rotate(15deg) scale(0.8);
+}
+
+.shape:nth-child(2) {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+.shape:nth-child(3) {
+  transform: rotate(25deg) scale(0.9);
+}
+
+.shape:nth-child(4) {
+  transform: rotate(-20deg) scale(1.2);
+}
+
+.shape:nth-child(5) {
+  transform: rotate(30deg) scale(0.7);
+}
+
+.shape:nth-child(6) {
+  transform: rotate(-15deg) scale(1.0);
+}
+
+.shape:nth-child(7) {
+  transform: rotate(45deg) scale(0.8);
+}
+
+.shape:nth-child(8) {
+  transform: rotate(-30deg) scale(1.3);
+}
+
+/* Custom scrollbar for wishing content only */
+.template-1 .wishing-section::-webkit-scrollbar,
+.template-1 .wishing-text::-webkit-scrollbar,
+.wishing-box::-webkit-scrollbar,
+.wishing-border::-webkit-scrollbar,
+.template-womens-day .wishing-text::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Hide scroll buttons completely */
+.template-1 .wishing-section::-webkit-scrollbar-button,
+.template-1 .wishing-text::-webkit-scrollbar-button,
+.wishing-box::-webkit-scrollbar-button,
+.wishing-border::-webkit-scrollbar-button,
+.template-womens-day .wishing-text::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Hide all scrollbar buttons */
+.template-1 .wishing-section::-webkit-scrollbar-button:start:decrement,
+.template-1 .wishing-section::-webkit-scrollbar-button:end:increment,
+.template-1 .wishing-text::-webkit-scrollbar-button:start:decrement,
+.template-1 .wishing-text::-webkit-scrollbar-button:end:increment,
+.wishing-box::-webkit-scrollbar-button:start:decrement,
+.wishing-box::-webkit-scrollbar-button:end:increment,
+.wishing-border::-webkit-scrollbar-button:start:decrement,
+.wishing-border::-webkit-scrollbar-button:end:increment,
+.template-womens-day .wishing-text::-webkit-scrollbar-button:start:decrement,
+.template-womens-day .wishing-text::-webkit-scrollbar-button:end:increment {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.template-1 .wishing-section::-webkit-scrollbar-track,
+.template-1 .wishing-text::-webkit-scrollbar-track,
+.wishing-box::-webkit-scrollbar-track,
+.wishing-border::-webkit-scrollbar-track,
+.template-womens-day .wishing-text::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 2px;
+}
+
+.template-1 .wishing-section::-webkit-scrollbar-thumb,
+.template-1 .wishing-text::-webkit-scrollbar-thumb,
+.wishing-box::-webkit-scrollbar-thumb,
+.wishing-border::-webkit-scrollbar-thumb,
+.template-womens-day .wishing-text::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.template-1 .wishing-section::-webkit-scrollbar-thumb:hover,
+.template-1 .wishing-text::-webkit-scrollbar-thumb:hover,
+.wishing-box::-webkit-scrollbar-thumb:hover,
+.wishing-border::-webkit-scrollbar-thumb:hover,
+.template-womens-day .wishing-text::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+  transform: scaleY(1.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Smooth scroll behavior */
+.template-1 .wishing-section,
+.template-1 .wishing-text,
+.wishing-box,
+.wishing-border,
+.template-womens-day .wishing-text {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar when not needed */
+.template-1 .wishing-section::-webkit-scrollbar-thumb:active,
+.template-1 .wishing-text::-webkit-scrollbar-thumb:active,
+.wishing-box::-webkit-scrollbar-thumb:active,
+.wishing-border::-webkit-scrollbar-thumb:active,
+.template-womens-day .wishing-text::-webkit-scrollbar-thumb:active {
+  background: rgba(0, 0, 0, 0.5);
+  transform: scaleY(1.2);
+}
+
+/* Firefox scrollbar for wishing content only */
+.template-1 .wishing-section,
+.template-1 .wishing-text,
+.wishing-box,
+.wishing-border,
+.template-womens-day .wishing-text {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+/* Ensure card containers don't scroll */
+.card-preview,
+.preview-card,
+.card-inner,
+.template-classic,
+.template-modern,
+.template-romantic {
+  overflow: hidden !important;
+}
+
+.template-romantic .card-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.template-romantic .card-title h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.template-romantic .to-name {
+  font-style: italic;
+  color: #666;
+}
+
+/* Card Signature Styles */
+.card-signature {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.card-signature .signature {
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+  font-size: 1rem;
+  font-style: italic;
+  color: #333;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  transform: rotate(-2deg);
+  background: rgba(255, 255, 255, 0.8);
+  padding: 3px 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Theme-specific signature colors */
+.theme-classic .card-signature .signature {
+  color: #8b4513;
+  background: rgba(254, 247, 224, 0.9);
+}
+
+.theme-modern .card-signature .signature {
+  color: #2d3748;
+  background: rgba(240, 244, 248, 0.9);
+}
+
+.theme-romantic .card-signature .signature {
+  color: #be185d;
+  background: rgba(253, 242, 248, 0.9);
+}
+
+.theme-previous .card-signature .signature {
+  color: #4a5568;
+  background: rgba(240, 244, 248, 0.9);
+}
+
+.theme-ocean .card-signature .signature {
+  color: #234e52;
+  background: rgba(230, 255, 250, 0.9);
+}
+
+.theme-forest .card-signature .signature {
+  color: #22543d;
+  background: rgba(240, 255, 244, 0.9);
+}
+
+.theme-sunset .card-signature .signature {
+  color: #c53030;
+  background: rgba(255, 245, 245, 0.9);
+}
+
+.theme-lavender .card-signature .signature {
+  color: #553c9a;
+  background: rgba(250, 245, 255, 0.9);
+}
+
+.theme-golden .card-signature .signature {
+  color: #92400e;
+  background: rgba(255, 251, 235, 0.9);
+}
+
+.theme-midnight .card-signature .signature {
+  color: #e2e8f0;
+  background: rgba(26, 32, 44, 0.9);
+}
+
+.template-1 .wishing-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 30px;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 15px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Classic template wishing section scroll */
+.template-1 .wishing-section {
+  flex: 1;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px 0;
+}
+
+.template-1 .signature {
+  text-align: right;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.template-1 .date {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #718096;
+  margin-top: 5px;
+}
+
+.template-2 .wishing-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.template-2 .wishing-text {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+.template-2 .signature-container {
+  text-align: center;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+}
+
+.template-2 .signature {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.template-2 .date {
+  color: #718096;
+  margin-top: 5px;
+}
+
+.template-3 .wishing-section h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.template-3 .wishing-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.template-3 .author-section {
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+}
+
+.template-3 .from-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.template-3 .date {
+  color: #718096;
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+/* Template Women's Day styles */
+.template-womens-day {
+  position: relative;
+  background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.template-womens-day .background-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.template-womens-day .heart-border {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  border: 2px dotted #ff69b4;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.template-womens-day .floating-hearts {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.template-womens-day .floating-hearts .heart {
+  font-size: 1.2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.template-womens-day .floating-hearts .heart:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.template-womens-day .floating-hearts .heart:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.template-womens-day .card-content {
+  position: relative;
+  z-index: 3;
+  background: linear-gradient(135deg, #ffb6c1 0%, #ffc0cb 100%);
+  border-radius: 15px;
+  padding: 30px;
+  margin: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: rotate(-2deg);
+  max-width: 300px;
+  text-align: center;
+}
+
+.template-womens-day .greeting {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #d63384;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.template-womens-day .wishing-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #495057;
+  margin-bottom: 15px;
+  font-style: italic;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.template-womens-day .hearts-decoration {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.template-womens-day .signature {
+  font-weight: bold;
+  color: #d63384;
+  font-size: 1.1rem;
+  margin-top: 15px;
+}
+
+.template-womens-day .date {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.template-womens-day .decorations {
+  position: absolute;
+  z-index: 2;
+}
+
+.template-womens-day .balloon {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  font-size: 2rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.template-womens-day .gift-box {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  font-size: 1.5rem;
+  animation: wiggle 3s ease-in-out infinite;
+}
+
+/* Animations for Women's Day template */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+/* Loading spinner styles - removed duplicate rule */
+
+
+/* Responsive design */
+
+/* Large tablets and small desktops */
+@media (max-width: 1200px) {
+  .create-card-form {
+    grid-template-columns: 400px 1fr;
+    gap: 20px;
+  }
+  
+  .form-container {
+    width: 400px;
+    padding: 30px;
+  }
+  
+  .card-preview {
+    max-width: 90%;
+    max-height: 90%;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .create-card-form {
+    grid-template-columns: 350px 1fr;
+    gap: 15px;
+  }
+  
+  .form-container {
+    width: 350px;
+    padding: 25px;
+  }
+  
+  .card-preview {
+    max-width: 85%;
+    max-height: 85%;
+  }
+  
+  .loading-container {
+    max-width: 450px;
+    padding: 40px 30px;
+  }
+  
+  .loading-container h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Mobile landscape and small tablets */
+@media (max-width: 768px) {
+  .create-card-form {
+    grid-template-columns: 1fr;
+    gap: 0;
+    min-height: 100vh;
+    height: 100vh;
+  }
+  
+  .create-card-form-fullscreen {
+    height: 100vh;
+  }
+  
+  .form-container {
+    width: 100%;
+    padding: 20px;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+  
+  .preview-container {
+    padding: 0;
+    min-height: 50vh;
+    height: 50vh;
+  }
+  
+  .card-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .button {
+    width: 100%;
+  }
+  
+  .form-container h1 {
+    font-size: 1.5rem;
+  }
+  
+  .card-preview {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .loading-container {
+    max-width: 90%;
+    padding: 30px 20px;
+    min-height: 250px;
+  }
+  
+  .loading-container h1 {
+    font-size: 1.4rem;
+  }
+  
+  .loading-description {
+    font-size: 0.9rem;
+  }
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #e2e8f0;
+    border-top: 3px solid #667eea;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+  .create-card-form {
+    grid-template-columns: 1fr;
+    gap: 0;
+    min-height: 100vh;
+    height: 100vh;
+  }
+  
+  .create-card-form-fullscreen {
+    height: 100vh;
+  }
+  
+  .form-container {
+    width: 100%;
+    padding: 15px;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    max-height: 45vh;
+    overflow-y: auto;
+  }
+  
+  .preview-container {
+    padding: 0;
+    min-height: 55vh;
+    height: 55vh;
+  }
+  
+  .form-container h1 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  
+  .form-description {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  
+  .card-preview {
+    max-width: 100%;
+    max-height: 100%;
+    transform: scale(0.8);
+  }
+  
+  .loading-container {
+    max-width: 95%;
+    padding: 25px 15px;
+    min-height: 200px;
+  }
+  
+  .loading-container h1 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  
+  .loading-description {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+  
+  .spinner {
+    width: 35px;
+    height: 35px;
+    border: 2px solid #e2e8f0;
+    border-top: 2px solid #667eea;
+  }
+  
+  .loading-message {
+    font-size: 0.8rem;
+  }
+  
+  .tab-navigation {
+    gap: 5px;
+    margin-top: 5px;
+  }
+  
+  .tab-button {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .submit-button {
+    padding: 10px 15px;
+    font-size: 0.85rem;
+  }
+}
+
+/* KeyInputForm responsive */
+@media (max-width: 768px) {
+  
+  /* KeyInputForm responsive - Removed for manual sizing */
+}
+
+@media (max-width: 480px) {
+  
+  .key-input-form .form-container {
+    max-width: 95%;
+    padding: 25px 20px;
+    margin: 5px auto;
+  }
+  
+  .key-input-form .form-container h1 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  
+  .key-input-form .form-description {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+  
+  .key-input-form .loading-container {
+    max-width: 95%;
+    padding: 15px 10px;
+    min-height: 150px;
+  }
+  
+  .key-input-form .loading-container h1 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  
+  .key-input-form .loading-description {
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+  }
+  
+  .key-input-form .spinner {
+    width: 35px;
+    height: 35px;
+    border: 2px solid #e2e8f0;
+    border-top: 2px solid #667eea;
+  }
+  
+  
+  .key-input-form .loading-message {
+    font-size: 0.8rem;
+  }
+  
+  .key-input-form .help-message {
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .key-input-form .help-message p {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+  }
+  
+  .key-input-form .help-message ul {
+    padding-left: 12px;
+  }
+  
+  .key-input-form .help-message li {
+    font-size: 0.8rem;
+    margin-bottom: 3px;
+  }
+  
+  .key-input-form .error-message {
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+  
+  .key-input-form .form {
+    gap: 15px;
+  }
+  
+  .key-input-form .submit-button {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+  .form-container {
+    padding: 10px;
+  }
+  
+  .loading-container {
+    padding: 20px 10px;
+    min-height: 180px;
+  }
+  
+  .loading-container h1 {
+    font-size: 1.1rem;
+  }
+  
+  .loading-description {
+    font-size: 0.8rem;
+  }
+  
+  .spinner {
+    width: 30px;
+    height: 30px;
+  }
+  
+  
+  .key-input-form .form-container {
+    max-width: 98%;
+    padding: 20px 15px;
+    margin: 2px auto;
+  }
+  
+  .key-input-form .form-container h1 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .key-input-form .form-description {
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .key-input-form .loading-container {
+    max-width: 98%;
+    padding: 12px 8px;
+    min-height: 120px;
+  }
+  
+  .key-input-form .loading-container h1 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .key-input-form .loading-description {
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+  }
+  
+  .key-input-form .spinner {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #e2e8f0;
+    border-top: 2px solid #667eea;
+  }
+  
+  
+  .key-input-form .loading-message {
+    font-size: 0.75rem;
+  }
+  
+  .key-input-form .help-message {
+    padding: 8px;
+    margin-top: 8px;
+  }
+  
+  .key-input-form .help-message p {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+  }
+  
+  .key-input-form .help-message ul {
+    padding-left: 10px;
+  }
+  
+  .key-input-form .help-message li {
+    font-size: 0.75rem;
+    margin-bottom: 2px;
+  }
+}
+
